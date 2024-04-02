@@ -1,5 +1,7 @@
 import { createBrowserRouter } from 'react-router-dom'
-import Layout from '../widgets/layout'
+import AuthorizationView from '../../pages/login'
+import Layout from '../../widgets/layout'
+import { Electronic, Plastic } from './router.list'
 
 export const router = createBrowserRouter([
 	{
@@ -8,12 +10,12 @@ export const router = createBrowserRouter([
 		children: [
 			{
 				index: true,
-				path: '/electronic',
-				element: <>electronic</>,
+				path: '/',
+				element: <Electronic />,
 			},
 			{
 				path: '/plastic',
-				element: <>plastic</>,
+				element: <Plastic />,
 			},
 			{
 				path: '/paper',
@@ -23,6 +25,6 @@ export const router = createBrowserRouter([
 	},
 	{
 		path: '/login',
-		element: <>Login</>,
+		element: <AuthorizationView />,
 	},
 ])

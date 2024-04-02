@@ -1,19 +1,20 @@
-import {
-	FluentProvider,
-	teamsLightTheme,
-	tokens,
-} from '@fluentui/react-components'
+import { FluentProvider, tokens } from '@fluentui/react-components'
+import { Provider } from 'react-redux'
 import { RouterProvider } from 'react-router-dom'
-import { router } from '../routing/router'
+import { router } from './routing/router'
+import { store } from './store/store'
+import { lightTheme } from './styles/theme/theme'
 
 function App() {
 	return (
-		<FluentProvider
-			theme={teamsLightTheme}
-			style={{ backgroundColor: tokens.colorBrandBackground2 }}
-		>
-			<RouterProvider router={router} fallbackElement={'Loader'} />
-		</FluentProvider>
+		<Provider store={store}>
+			<FluentProvider
+				theme={lightTheme}
+				style={{ backgroundColor: tokens.colorBrandBackground2 }}
+			>
+				<RouterProvider router={router} fallbackElement={'Loader'} />
+			</FluentProvider>
+		</Provider>
 	)
 }
 

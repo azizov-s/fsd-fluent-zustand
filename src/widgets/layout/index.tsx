@@ -1,28 +1,46 @@
-import { makeStyles, shorthands } from '@fluentui/react-components'
-import SideBar from './components/sidebar.content'
+import { makeStyles, shorthands, tokens } from '@fluentui/react-components'
+import { Outlet } from 'react-router-dom'
 
 const useStyles = makeStyles({
 	main: {
 		width: '100%',
 		minHeight: '100vh',
-		height: '95%',
-		alignItems: 'center',
+		height: '100%',
+
 		display: 'flex',
-		flexDirection: 'column',
-		justifyContent: 'start',
-		...shorthands.padding('50px, 50px'),
+		justifyContent: 'center',
+		alignItems: 'center',
 	},
 	page: {
-		maxWidth: '1440px',
 		width: '90%',
-		height: '85vh',
-		// backgroundColor: 'red',
-		alignItems: 'start',
+		height: '90%',
+
+		display: 'flex',
+		justifyContent: 'center',
+		alignItems: 'center',
+		// backgroundColor: 'blue',
+	},
+	sideBar: {
+		minWidth: '250px',
+		maxHeight: '100vh',
+		height: '100%',
+
 		display: 'flex',
 		flexDirection: 'column',
-		justifyContent: 'flex-start',
-		rowGap: '20px',
-		...shorthands.marginBlock('50px'),
+		justifyContent: 'space-between',
+		alignItems: 'center',
+		// position: 'fixed',
+
+		// ...shorthands.padding('10px', '0'),
+		// backgroundColor: 'yellow',
+	},
+	outlet: {
+		// marginLeft: '290px',
+		width: '100%',
+		minHeight: '0vh',
+		backgroundColor: tokens.colorNeutralBackground1,
+		...shorthands.borderRadius('10px'),
+		...shorthands.padding('20px', '20px'),
 	},
 })
 
@@ -31,7 +49,10 @@ export default function Layout() {
 	return (
 		<div className={styles.main}>
 			<div className={styles.page}>
-				<SideBar />
+				{/* <div className={styles.sideBar}><SideBar /></div> */}
+				<div className={styles.outlet}>
+					<Outlet />
+				</div>
 			</div>
 		</div>
 	)
